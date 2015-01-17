@@ -1,4 +1,4 @@
-package li.angu.firei.listener;
+package li.angu.firei.luckyblocks.listener;
 
 import li.angu.firei.luckyblocks.Main;
 import li.angu.firei.luckyblocks.events.EventManager;
