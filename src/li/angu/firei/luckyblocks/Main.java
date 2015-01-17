@@ -14,8 +14,7 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 
 		if (!Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays")) {
-			getLogger()
-					.severe("*** HolographicDisplays is not installed or not enabled. ***");
+			getLogger().severe("*** HolographicDisplays is not installed or not enabled. ***");
 			getLogger().severe("*** This plugin will be disabled. ***");
 			this.setEnabled(false);
 			return;

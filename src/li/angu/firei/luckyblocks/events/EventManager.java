@@ -7,6 +7,7 @@ import li.angu.firei.luckyblocks.createHologram;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 
 public class EventManager {
 
@@ -21,7 +22,7 @@ public class EventManager {
 	}
 
 	public static Effects playEffect(Effects effect, Location loc) {
-
+		loc.getWorld().playSound(loc, Sound.ANVIL_USE, 5, 1);
 		if (effect == Effects.Diamond) {
 			new EFFECTDiamond(loc);
 			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
