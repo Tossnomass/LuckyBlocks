@@ -5,5 +5,5 @@ author: Firei
 main: li.angu.firei.luckyblocks.Main
 softdepend: [HolographicDisplays]
 commands:
-  test:
-    usage: /test
+  action:
+    usage: /action [Aktion]
