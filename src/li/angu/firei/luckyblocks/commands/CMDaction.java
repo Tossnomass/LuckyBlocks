@@ -1,15 +1,14 @@
 package li.angu.firei.luckyblocks.commands;
 
+import li.angu.firei.luckyblocks.Main;
+import li.angu.firei.luckyblocks.events.Effekte;
+import li.angu.firei.luckyblocks.events.EventManager;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import li.angu.firei.luckyblocks.Main;
-import li.angu.firei.luckyblocks.events.EventManager;
-import li.angu.firei.luckyblocks.events.EventManager.Effects;
 
 public class CMDaction implements CommandExecutor {
 
@@ -26,12 +25,12 @@ public class CMDaction implements CommandExecutor {
 		Player p = (Player) sender;
 
 		if (args.length == 1) {
-			Effects e = Effects.valueOf(args[0]);
+			Effekte e = Effekte.valueOf(args[0]);
 			EventManager.playEffect(e, p.getLocation());
 			p.sendMessage(ChatColor.AQUA + "Effekt: " + e.name());
 			return true;
 		}
-		Effects e = EventManager.playEffect(p.getLocation());
+		Effekte e = EventManager.playEffect(p.getLocation());
 		p.sendMessage(ChatColor.AQUA + "Effekt: " + e.name());
 		return true;
 	}
