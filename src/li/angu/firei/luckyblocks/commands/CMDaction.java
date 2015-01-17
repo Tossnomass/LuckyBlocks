@@ -27,11 +27,11 @@ public class CMDaction implements CommandExecutor {
 		if (args.length == 1) {
 			Effekte e = Effekte.valueOf(args[0]);
 			EventManager.playEffect(e, p.getLocation());
-			p.sendMessage(ChatColor.AQUA + "Effekt: " + e.name());
+			p.sendMessage(Main.prefix + ChatColor.AQUA + "Effekt: " + e.name());
 			return true;
 		}
 		Effekte e = EventManager.playEffect(p.getLocation());
-		p.sendMessage(ChatColor.AQUA + "Effekt: " + e.name());
+		p.sendMessage(Main.prefix + ChatColor.AQUA + "Effekt: " + e.name());
 		return true;
 	}
 

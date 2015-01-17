@@ -2,6 +2,7 @@ package li.angu.firei.luckyblocks;
 
 import li.angu.firei.luckyblocks.commands.CMDaction;
 import li.angu.firei.luckyblocks.listener.LISTENERBlockBreak;
+import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -10,6 +11,8 @@ public class Main extends JavaPlugin {
 
 	public static Main instance;
 
+	public static String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.YELLOW + "LuckyBlocks" + ChatColor.DARK_GRAY + "] ";
+	
 	@Override
 	public void onEnable() {
 
