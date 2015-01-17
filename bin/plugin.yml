@@ -1,0 +1,9 @@
+name: Lucky Blocks
+version: 1.0
+description: Lucky Blocks entwickelt von Firei
+author: Firei
+main: li.angu.firei.luckyblocks.Main
+softdepend: [HolographicDisplays]
+commands:
+  test:
+    usage: /test
