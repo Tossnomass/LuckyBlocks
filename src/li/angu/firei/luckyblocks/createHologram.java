@@ -17,10 +17,10 @@ public class createHologram {
 			
 			@Override
 			public void run() {
-				hologram.teleport(loc.add(0, 0.2, 0));
+				hologram.teleport(loc.add(0, 0.02, 0));
 				
 			}
-		}, 10, 10);
+		}, 1, 1);
 		Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
 			
 			@Override
@@ -28,7 +28,7 @@ public class createHologram {
 				hologram.delete();
 				Bukkit.getScheduler().cancelTask(move);
 			}
-		},20L*5);
+		},20L*3);
 	}
 
 }
