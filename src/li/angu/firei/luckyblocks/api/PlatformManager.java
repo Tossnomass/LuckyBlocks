@@ -5,12 +5,10 @@ import java.util.Random;
 
 import li.angu.firei.luckyblocks.Main;
 
-import org.apache.logging.log4j.core.config.plugins.Plugin;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Biome;
-import org.bukkit.block.Block;
 
 public class PlatformManager {
 
