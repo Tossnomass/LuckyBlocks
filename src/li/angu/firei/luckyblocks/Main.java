@@ -27,8 +27,6 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 
-		
-
 		if (!Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays")) {
 			getLogger()
 					.severe("*** HolographicDisplays is not installed or not enabled. ***");
@@ -45,7 +43,7 @@ public class Main extends JavaPlugin {
 		new LISTENERClick(this);
 
 		PlatformManager.createPlatform();
-
+		// This is a test
 		CMDsave save = new CMDsave(this);
 		getCommand("save").setExecutor(save);
 
