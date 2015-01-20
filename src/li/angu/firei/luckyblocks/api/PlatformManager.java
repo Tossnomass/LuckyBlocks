@@ -1,22 +1,67 @@
 package li.angu.firei.luckyblocks.api;
 
+import java.util.ArrayList;
 import java.util.Random;
 
+import li.angu.firei.luckyblocks.Main;
+
+import org.apache.logging.log4j.core.config.plugins.Plugin;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Biome;
+import org.bukkit.block.Block;
 
 public class PlatformManager {
 
 	public static Location mitte;
 
+	public static ArrayList<Location> locs = new ArrayList<>();
+	
+	static Main plugin = Main.instance;
+	
 	public static void createPlatform() {
 		if (mitte == null) {
 			setMitte();
 		}
 		Location bl = mitte;
 
+		int vonx = bl.getBlockX();
+		int vony = bl.getBlockY();
+		int vonz = bl.getBlockZ();
+		
+		int x = vonx;
+		int y = vony;
+		int z = vonz;
+		
+		ArrayList<String> l = (ArrayList<String>) plugin.getConfig().getStringList("start");
+
+		for (String s : l) {
+			if(s.equalsIgnoreCase("y")){
+				y++;
+				z = vonz;
+				continue;
+			}
+			if(s.equalsIgnoreCase("z")){
+				z++;
+				x = vonx;
+				continue;
+			}
+			String material = s.split(":")[0];
+			String subid = s.split(":")[1];
+			int data = Integer.parseInt(subid);
+			Material mat = Material.getMaterial(material);
+			Location loc = new Location(Bukkit.getWorld("world"), x, y, z);
+			loc.getBlock().setType(mat);
+			if(mat == Material.BEACON){
+				locs.add(loc);
+			}
+			if(data != 0){
+				loc.getBlock().setData((byte) data);
+			}
+			x++;
+		}
+		
 	}
 
 	private static void setMitte() {

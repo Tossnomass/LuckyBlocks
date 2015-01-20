@@ -3,6 +3,7 @@ package li.angu.firei.luckyblocks;
 import java.io.File;
 
 import li.angu.firei.luckyblocks.api.PlatformManager;
+import li.angu.firei.luckyblocks.api.StopDetect;
 import li.angu.firei.luckyblocks.api.WorldManager;
 import li.angu.firei.luckyblocks.commands.CMDaction;
 import li.angu.firei.luckyblocks.commands.CMDsave;
@@ -14,7 +15,6 @@ import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
 import org.bukkit.World;
-import org.bukkit.WorldCreator;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -42,6 +42,8 @@ public class Main extends JavaPlugin {
 		new LISTENERLeave(this);
 		new LISTENERClick(this);
 
+		new StopDetect(this);
+
 		PlatformManager.createPlatform();
 		// This is a test
 		CMDsave save = new CMDsave(this);
@@ -55,16 +57,7 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		World w = getServer().getWorld("world");
 
-		WorldManager.unloadWorld(w);
-
-		System.out.println("World entladen!");
-
-		File deleteFolder = w.getWorldFolder();
-		WorldManager.deleteWorld(deleteFolder);
-
-		System.out.println("Welt gelöscht!");
 	}
 
 }
