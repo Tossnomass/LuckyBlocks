@@ -122,6 +122,20 @@ public class EventManager {
 					1, 0));
 			return effect;
 		}
+		if (effect == Effekte.Iron) {
+			new EFFECTIron(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Rostgefahr!", loc.add(0,
+					1, 0));
+			return effect;
+		}
+		if (effect == Effekte.Workbench) {
+			new EFFECTworkbench(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Das Craften beginnt!", loc.add(0,
+					1, 0));
+			return effect;
+		}
 		return effect;
 	}
 
