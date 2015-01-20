@@ -7,3 +7,5 @@ softdepend: [HolographicDisplays]
 commands:
   action:
     usage: /action [Aktion]
+  save:
+    usage: /save

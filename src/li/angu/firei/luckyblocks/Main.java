@@ -5,7 +5,9 @@ import java.io.File;
 import li.angu.firei.luckyblocks.api.PlatformManager;
 import li.angu.firei.luckyblocks.api.WorldManager;
 import li.angu.firei.luckyblocks.commands.CMDaction;
+import li.angu.firei.luckyblocks.commands.CMDsave;
 import li.angu.firei.luckyblocks.listener.LISTENERBlockBreak;
+import li.angu.firei.luckyblocks.listener.LISTENERClick;
 import li.angu.firei.luckyblocks.listener.LISTENERJoin;
 import li.angu.firei.luckyblocks.listener.LISTENERLeave;
 import net.md_5.bungee.api.ChatColor;
@@ -25,6 +27,8 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 
+		
+
 		if (!Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays")) {
 			getLogger()
 					.severe("*** HolographicDisplays is not installed or not enabled. ***");
@@ -38,30 +42,31 @@ public class Main extends JavaPlugin {
 		new LISTENERBlockBreak(this);
 		new LISTENERJoin(this);
 		new LISTENERLeave(this);
+		new LISTENERClick(this);
 
-		
 		PlatformManager.createPlatform();
-		
+
+		CMDsave save = new CMDsave(this);
+		getCommand("save").setExecutor(save);
+
 		CMDaction action = new CMDaction(this);
 		getCommand("action").setExecutor(action);
 
+		System.out.println("Seed: " + getServer().getWorld("world").getSeed());
 	}
 
 	@Override
 	public void onDisable() {
-
 		World w = getServer().getWorld("world");
-		
+
 		WorldManager.unloadWorld(w);
 
 		System.out.println("World entladen!");
-		
+
 		File deleteFolder = w.getWorldFolder();
 		WorldManager.deleteWorld(deleteFolder);
-		
+
 		System.out.println("Welt gelöscht!");
-		
-		
 	}
 
 }
