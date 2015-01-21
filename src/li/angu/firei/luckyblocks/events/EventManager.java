@@ -12,7 +12,7 @@ import org.bukkit.Sound;
 public class EventManager {
 
 	static int test = 1;
-	
+
 	static Main plugin = Main.instance;
 
 	public static Effekte playEffect(Location loc) {
@@ -125,20 +125,87 @@ public class EventManager {
 		if (effect == Effekte.Iron) {
 			new EFFECTIron(loc);
 			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
-					+ ChatColor.AQUA + " Rostgefahr!", loc.add(0,
-					1, 0));
+					+ ChatColor.AQUA + " Rostgefahr!", loc.add(0, 1, 0));
 			return effect;
 		}
 		if (effect == Effekte.Workbench) {
 			new EFFECTworkbench(loc);
 			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
-					+ ChatColor.AQUA + " Das Craften beginnt!", loc.add(0,
-					1, 0));
+					+ ChatColor.AQUA + " Das Craften beginnt!",
+					loc.add(0, 1, 0));
 			return effect;
+		}
+		if (effect == Effekte.WoodTools) {
+			new EFFECTWoodTools(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Wenigstens ein Anfang!", loc);
+		}
+		if (effect == Effekte.StoneTools) {
+			new EFFECTStoneTools(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Wenigstens ein Anfang!", loc);
+		}
+		if (effect == Effekte.Dirt) {
+			new EFFECTDirt(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Was ein Dreck!", loc);
+		}
+		if (effect == Effekte.IronBlock) {
+			new EFFECTIronBlock(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Lass es nicht rosten!", loc);
+		}
+		if (effect == Effekte.Rod) {
+			new EFFECTRod(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Schwing die Angel!", loc);
+		}
+		if (effect == Effekte.Archer) {
+			new EFFECTArcher(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Triff!", loc);
+		}
+		if (effect == Effekte.Bedrock) {
+			new EFFECTBedrock(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "-"
+					+ ChatColor.RED + " Na toll!", loc);
+		}
+		if (effect == Effekte.Cake) {
+			new EFFECTCake(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Guten Hunger!", loc);
+		}
+		if (effect == Effekte.Anvil) {
+			new EFFECTAnvil(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " An die Eisen!", loc);
+		}
+		if (effect == Effekte.SpiderInvasion) {
+			new EFFECTSpiderInvasion(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "-"
+					+ ChatColor.RED + " Das sieht gefährlich aus!", loc);
+		}
+		if (effect == Effekte.Giant) {
+			new EFFECTGiant(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "-"
+					+ ChatColor.RED + " Der ist aber gross!", loc);
+		}
+		if (effect == Effekte.RandomBlock) {
+			new EFFECTRandomBlock(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Ein schöner Block!", loc);
+		}
+		if (effect == Effekte.ColoredWool) {
+			new EFFECTColoredWool(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Wolle gefällig?", loc);
+		}
+		if (effect == Effekte.Fische) {
+			new EFFECTFische(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Guten Hunger!", loc);
 		}
 		return effect;
 	}
-
-	
 
 }
