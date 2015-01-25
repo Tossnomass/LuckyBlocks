@@ -84,7 +84,8 @@ public class PlatformManager {
 			mitte.add(0, 30, 0);
 		}
 
-		while (mitte.getWorld().getBiome(x, z) == Biome.OCEAN) {
+		while (mitte.getWorld().getBiome(x, z) == Biome.OCEAN
+				|| mitte.getWorld().getBiome(x, z) == Biome.DEEP_OCEAN) {
 
 			x = r.nextInt(1000);
 			z = r.nextInt(1000);
