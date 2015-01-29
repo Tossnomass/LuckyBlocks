@@ -24,11 +24,11 @@ public class LISTENERJoin implements Listener {
 	@EventHandler
 	private void onJoin(PlayerJoinEvent e) {
 
-		if (GameManager.status) {
-			e.getPlayer().kickPlayer(
-					ChatColor.RED + "Die Runde hat bereits begonnen!");
-			return;
-		}
+//		if (GameManager.status) {
+//			e.getPlayer().kickPlayer(
+//					ChatColor.RED + "Die Runde hat bereits begonnen!");
+//			return;
+//		}
 
 		Random r = new Random();
 

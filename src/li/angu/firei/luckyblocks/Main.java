@@ -5,6 +5,7 @@ import li.angu.firei.luckyblocks.api.StopDetect;
 import li.angu.firei.luckyblocks.commands.CMDaction;
 import li.angu.firei.luckyblocks.commands.CMDsave;
 import li.angu.firei.luckyblocks.listener.LISTENERBlockBreak;
+import li.angu.firei.luckyblocks.listener.LISTENERBlockPlace;
 import li.angu.firei.luckyblocks.listener.LISTENERClick;
 import li.angu.firei.luckyblocks.listener.LISTENERJoin;
 import li.angu.firei.luckyblocks.listener.LISTENERLeave;
@@ -37,6 +38,7 @@ public class Main extends JavaPlugin {
 		new LISTENERJoin(this);
 		new LISTENERLeave(this);
 		new LISTENERClick(this);
+		new LISTENERBlockPlace(this);
 
 		new StopDetect(this);
 
