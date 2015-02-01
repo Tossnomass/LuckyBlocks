@@ -24,12 +24,12 @@ public class LISTENERJoin implements Listener {
 	@EventHandler
 	private void onJoin(PlayerJoinEvent e) {
 
-//		if (GameManager.status) {
-//			e.getPlayer().kickPlayer(
-//					ChatColor.RED + "Die Runde hat bereits begonnen!");
-//			return;
-//		}
-
+		if (GameManager.status) {
+			e.getPlayer().kickPlayer(
+					ChatColor.RED + "Die Runde hat bereits begonnen!");
+			return;
+		}
+		
 		Random r = new Random();
 
 		int size = PlatformManager.locs.size();
@@ -38,12 +38,19 @@ public class LISTENERJoin implements Listener {
 
 		Location spawn = PlatformManager.locs.get(random);
 		PlatformManager.locs.remove(random);
+		
+		GameManager.starts.put(e.getPlayer(), spawn);
 
 		e.getPlayer().teleport(spawn.add(0.5, 1, 0.5));
 
 		e.setJoinMessage(ChatColor.DARK_GRAY + "> " + ChatColor.GREEN
 				+ e.getPlayer().getDisplayName() + ChatColor.DARK_AQUA
 				+ " hat das Spiel betreten");
+		
+		if(plugin.getServer().getOnlinePlayers().size() >= 2){
+			
+		}
+		
 	}
 
 }

@@ -55,7 +55,7 @@ public class PlatformManager {
 			loc.getBlock().setType(mat);
 			GameManager.protectedblocks.add(loc.getBlockX() + ":"
 					+ loc.getBlockY() + ":" + loc.getBlockZ());
-			if (mat == Material.BEACON) {
+			if (mat == Material.STEP && data == 0) {
 				locs.add(loc);
 			}
 			if (data != 0) {
