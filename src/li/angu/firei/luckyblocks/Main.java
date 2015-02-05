@@ -43,7 +43,7 @@ public class Main extends JavaPlugin {
 		new StopDetect(this);
 
 		PlatformManager.createPlatform();
-		// This is a test
+		
 		CMDsave save = new CMDsave(this);
 		getCommand("save").setExecutor(save);
 

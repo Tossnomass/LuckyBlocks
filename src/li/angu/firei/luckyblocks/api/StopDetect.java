@@ -6,18 +6,25 @@ import li.angu.firei.luckyblocks.Main;
 
 import org.bukkit.Bukkit;
 import org.bukkit.World;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.server.ServerCommandEvent;
 
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
+
 public class StopDetect implements Listener {
 
-	Main plugin;
+	static Main plugin;
 
 	public StopDetect(Main main) {
 		plugin = main;
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
+
+		plugin.getServer().getMessenger()
+				.registerOutgoingPluginChannel(plugin, "BungeeCord");
 	}
 
 	@EventHandler
@@ -33,12 +40,32 @@ public class StopDetect implements Listener {
 		if (e.getPlayer().isOp()) {
 			if (e.getMessage().startsWith("/stop")
 					|| e.getMessage().startsWith("/restart")) {
-				serverstops();
+				stopserver();
+				e.setCancelled(true);
 			}
 		}
 	}
 
-	public static void serverstops() {
+	public static void stopserver() {
+		serverstops();
+		Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+			
+			@Override
+			public void run() {
+				plugin.getServer().shutdown();
+			}
+		}, 20L);
+		
+	}
+
+	private static void serverstops() {
+
+		ByteArrayDataOutput out = ByteStreams.newDataOutput();
+		out.writeUTF("Connect");
+		out.writeUTF("lobby");
+		for (Player target : plugin.getServer().getOnlinePlayers()) {
+			target.sendPluginMessage(plugin, "BungeeCord", out.toByteArray());
+		}
 
 		World w = Bukkit.getWorld("world");
 
@@ -46,6 +73,7 @@ public class StopDetect implements Listener {
 
 		File deleteFolder = w.getWorldFolder();
 		WorldManager.deleteWorld(deleteFolder);
+
 	}
 
 }
