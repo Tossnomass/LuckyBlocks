@@ -16,7 +16,7 @@ public class GameManager {
 	
 	public static ArrayList<String> protectedblocks = new ArrayList<>();
 	
-	public static boolean status = false;
+	public static Status status = Status.LOBBY;
 	
 	public static int size = 800;
 	

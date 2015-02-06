@@ -4,6 +4,7 @@ import li.angu.firei.luckyblocks.api.PlatformManager;
 import li.angu.firei.luckyblocks.api.StopDetect;
 import li.angu.firei.luckyblocks.commands.CMDaction;
 import li.angu.firei.luckyblocks.commands.CMDsave;
+import li.angu.firei.luckyblocks.events.Effekte;
 import li.angu.firei.luckyblocks.listener.LISTENERBlockBreak;
 import li.angu.firei.luckyblocks.listener.LISTENERBlockPlace;
 import li.angu.firei.luckyblocks.listener.LISTENERClick;
@@ -12,6 +13,7 @@ import li.angu.firei.luckyblocks.listener.LISTENERLeave;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
+import org.bukkit.WorldCreator;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -26,13 +28,15 @@ public class Main extends JavaPlugin {
 
 		if (!Bukkit.getPluginManager().isPluginEnabled("HolographicDisplays")) {
 			getLogger()
-					.severe("*** HolographicDisplays is not installed or not enabled. ***");
-			getLogger().severe("*** This plugin will be disabled. ***");
+					.severe("*** HolographicDisplays ist nicht installiert oder geladen. ***");
+			getLogger().severe("*** Dieses Plugin deaktivert sich. ***");
 			this.setEnabled(false);
 			return;
 		}
 
 		instance = this;
+
+		this.getServer().createWorld(new WorldCreator("world"));
 
 		new LISTENERBlockBreak(this);
 		new LISTENERJoin(this);
@@ -43,7 +47,7 @@ public class Main extends JavaPlugin {
 		new StopDetect(this);
 
 		PlatformManager.createPlatform();
-		
+
 		CMDsave save = new CMDsave(this);
 		getCommand("save").setExecutor(save);
 
@@ -51,6 +55,7 @@ public class Main extends JavaPlugin {
 		getCommand("action").setExecutor(action);
 
 		System.out.println("Seed: " + getServer().getWorld("world").getSeed());
+		System.out.println(Effekte.values().length + " Effekte geladen!");
 	}
 
 	@Override

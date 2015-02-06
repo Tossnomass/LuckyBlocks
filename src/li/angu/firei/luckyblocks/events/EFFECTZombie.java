@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class EFFECTZombie {
 
+	@SuppressWarnings("deprecation")
 	public EFFECTZombie(Location loc) {
 		int anzahl = new Random().nextInt(5) + 3;
 		for (int i = 0; i < anzahl; i++) {

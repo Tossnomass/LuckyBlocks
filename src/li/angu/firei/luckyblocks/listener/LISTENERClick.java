@@ -1,7 +1,6 @@
 package li.angu.firei.luckyblocks.listener;
 
 import li.angu.firei.luckyblocks.Main;
-import li.angu.firei.luckyblocks.api.PlatformManager;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Location;
@@ -11,7 +10,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 
 public class LISTENERClick implements Listener {
 
@@ -41,7 +39,7 @@ public class LISTENERClick implements Listener {
 			plugin.getConfig().set("von.y", pos.getBlockY());
 			plugin.getConfig().set("von.z", pos.getBlockZ());
 			plugin.saveConfig();
-			p.sendMessage(plugin.prefix + ChatColor.GREEN + "Du hast Punkt " + ChatColor.YELLOW + "1 " + ChatColor.GREEN + "gesetzt!");
+			p.sendMessage(Main.prefix + ChatColor.GREEN + "Du hast Punkt " + ChatColor.YELLOW + "1 " + ChatColor.GREEN + "gesetzt!");
 			return;
 		}
 		if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
@@ -50,7 +48,7 @@ public class LISTENERClick implements Listener {
 			plugin.getConfig().set("bis.y", pos.getBlockY());
 			plugin.getConfig().set("bis.z", pos.getBlockZ());
 			plugin.saveConfig();
-			p.sendMessage(plugin.prefix + ChatColor.GREEN + "Du hast Punkt " + ChatColor.YELLOW + "2 " + ChatColor.GREEN + "gesetzt!");
+			p.sendMessage(Main.prefix + ChatColor.GREEN + "Du hast Punkt " + ChatColor.YELLOW + "2 " + ChatColor.GREEN + "gesetzt!");
 			return;
 		}
 

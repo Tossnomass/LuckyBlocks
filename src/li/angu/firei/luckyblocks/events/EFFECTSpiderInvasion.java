@@ -7,6 +7,7 @@ import org.bukkit.entity.EntityType;
 
 public class EFFECTSpiderInvasion {
 
+	@SuppressWarnings("deprecation")
 	public EFFECTSpiderInvasion(Location loc) {
 		int anzahl = new Random().nextInt(5) + 3;
 		for (int i = 0; i < anzahl; i++) {

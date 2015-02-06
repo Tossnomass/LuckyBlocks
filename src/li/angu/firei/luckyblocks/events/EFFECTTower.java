@@ -5,6 +5,7 @@ import org.bukkit.Material;
 
 public class EFFECTTower {
 
+	@SuppressWarnings("deprecation")
 	public EFFECTTower(Location loc) {
 		loc.getBlock().setType(Material.STAINED_CLAY);
 		loc.getBlock().setData((byte) 1);

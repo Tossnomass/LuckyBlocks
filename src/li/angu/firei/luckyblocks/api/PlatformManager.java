@@ -19,6 +19,7 @@ public class PlatformManager {
 
 	static Main plugin = Main.instance;
 
+	@SuppressWarnings("deprecation")
 	public static void createPlatform() {
 		if (mitte == null) {
 			setMitte();

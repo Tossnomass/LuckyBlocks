@@ -21,20 +21,21 @@ public class CMDsave implements CommandExecutor {
 		plugin = main;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label,
 			String[] args) {
 
 		Player p = (Player) sender;
 		if (!p.isOp()) {
-			p.sendMessage(plugin.prefix + ChatColor.RED
+			p.sendMessage(Main.prefix + ChatColor.RED
 					+ "Du darfst diesen Befehl nicht ausführen!");
 			return true;
 		}
 
 		if (!plugin.getConfig().contains("von.x")
 				|| !plugin.getConfig().contains("bis.x")) {
-			p.sendMessage(plugin.prefix + ChatColor.RED
+			p.sendMessage(Main.prefix + ChatColor.RED
 					+ "Du musst erst zwei Punkte setzen!");
 			return true;
 		}
@@ -92,7 +93,7 @@ public class CMDsave implements CommandExecutor {
 		plugin.getConfig().set("start", l);
 		plugin.saveConfig();
 
-		p.sendMessage(plugin.prefix + ChatColor.GREEN + "Neue Plattform gesetzt!");
+		p.sendMessage(Main.prefix + ChatColor.GREEN + "Neue Plattform gesetzt!");
 		
 		return true;
 	}

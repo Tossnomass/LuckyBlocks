@@ -6,6 +6,7 @@ import java.util.List;
 import li.angu.firei.luckyblocks.Main;
 import li.angu.firei.luckyblocks.api.PlatformManager;
 import li.angu.firei.luckyblocks.game.GameManager;
+import li.angu.firei.luckyblocks.game.Status;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
@@ -28,7 +29,7 @@ public class LISTENERMove implements Listener {
 
 	@EventHandler
 	private void onMove(final PlayerMoveEvent e) {
-		if(!GameManager.status){
+		if(GameManager.status == Status.WARTEN){
 			if(GameManager.starts.get(e.getPlayer()).distance(e.getTo()) >= 1){
 				e.getPlayer().teleport(GameManager.starts.get(e.getPlayer()));
 				return;

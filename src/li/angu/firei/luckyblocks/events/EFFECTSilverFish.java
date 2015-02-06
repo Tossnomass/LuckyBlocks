@@ -7,6 +7,7 @@ import org.bukkit.entity.EntityType;
 
 public class EFFECTSilverFish {
 
+	@SuppressWarnings("deprecation")
 	public EFFECTSilverFish(Location loc) {
 		int anzahl = new Random().nextInt(5) + 1;
 		for (int i = 0; i < anzahl; i++) {
