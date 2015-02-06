@@ -29,6 +29,9 @@ public class LISTENERMove implements Listener {
 
 	@EventHandler
 	private void onMove(final PlayerMoveEvent e) {
+		if(e.getPlayer().getWorld().getName().equalsIgnoreCase("lobby")){
+			return;
+		}
 		if(GameManager.status == Status.WARTEN){
 			if(GameManager.starts.get(e.getPlayer()).distance(e.getTo()) >= 1){
 				e.getPlayer().teleport(GameManager.starts.get(e.getPlayer()));

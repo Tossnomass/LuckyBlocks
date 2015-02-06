@@ -13,9 +13,9 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class LISTENERJoin implements Listener {
 
 	Main plugin;
-	
+
 	Location spawn;
-	
+
 	public LISTENERJoin(Main main) {
 		plugin = main;
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
@@ -30,28 +30,20 @@ public class LISTENERJoin implements Listener {
 					ChatColor.RED + "Die Runde hat bereits begonnen!");
 			return;
 		}
-		
-//		Random r = new Random();
-//
-//		int size = PlatformManager.locs.size();
-//
-//		int random = r.nextInt(size);
-//
-//		Location spawn = PlatformManager.locs.get(random);
-//		PlatformManager.locs.remove(random);
-//		
-//		GameManager.starts.put(e.getPlayer(), spawn);
 
-		e.getPlayer().teleport(spawn.add(0.5, 1, 0.5));
+		e.getPlayer().getInventory().clear();
+		e.getPlayer().getInventory().setArmorContents(null);
+		e.getPlayer().setHealth(20);
+		e.getPlayer().setFoodLevel(20);
+		
+		e.getPlayer().teleport(spawn);
 
 		e.setJoinMessage(ChatColor.DARK_GRAY + "> " + ChatColor.GREEN
 				+ e.getPlayer().getDisplayName() + ChatColor.DARK_AQUA
 				+ " hat das Spiel betreten");
-		
-		if(plugin.getServer().getOnlinePlayers().size() >= 2){
-			
-		}
-		
+
+		GameManager.check();
+
 	}
 
 }

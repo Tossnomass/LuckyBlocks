@@ -8,8 +8,11 @@ import li.angu.firei.luckyblocks.events.Effekte;
 import li.angu.firei.luckyblocks.listener.LISTENERBlockBreak;
 import li.angu.firei.luckyblocks.listener.LISTENERBlockPlace;
 import li.angu.firei.luckyblocks.listener.LISTENERClick;
+import li.angu.firei.luckyblocks.listener.LISTENERDamage;
+import li.angu.firei.luckyblocks.listener.LISTENERFoodChange;
 import li.angu.firei.luckyblocks.listener.LISTENERJoin;
 import li.angu.firei.luckyblocks.listener.LISTENERLeave;
+import li.angu.firei.luckyblocks.listener.LISTENERMove;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
@@ -43,6 +46,9 @@ public class Main extends JavaPlugin {
 		new LISTENERLeave(this);
 		new LISTENERClick(this);
 		new LISTENERBlockPlace(this);
+		new LISTENERMove(this);
+		new LISTENERDamage(this);
+		new LISTENERFoodChange(this);
 
 		new StopDetect(this);
 
