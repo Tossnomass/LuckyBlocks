@@ -18,7 +18,7 @@ public class LISTENERPlayerDeath implements Listener {
 
 	@EventHandler
 	private void onDeath(PlayerDeathEvent e) {
-		e.getEntity().kickPlayer(ChatColor.RED + "Du bist gestorben!");
+		e.getEntity().kickPlayer(ChatColor.RED + "Du bist gestorben!\n" + ChatColor.GRAY + "Der Zuschauermodus ist zurzeit nicht verfügbar!");
 	}
 
 }

@@ -20,6 +20,7 @@ public class LISTENERClick implements Listener {
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 	}
 
+	@SuppressWarnings("deprecation")
 	@EventHandler
 	private void onClick(PlayerInteractEvent e) {
 
@@ -29,7 +30,20 @@ public class LISTENERClick implements Listener {
 
 		Player p = e.getPlayer();
 
-		if (p.getInventory().getItemInHand().getType() != Material.BLAZE_POWDER) {
+		if (p.getItemInHand().getType() == Material.DIAMOND_SPADE
+				&& p.getItemInHand().getItemMeta().getDisplayName()
+						.equals(ChatColor.DARK_PURPLE + "EggThrower")) {
+			p.throwEgg();
+			p.getItemInHand().setDurability(
+					(short) (p.getItemInHand().getDurability() + 15));
+			if (p.getItemInHand().getDurability() > 1561) {
+				p.getInventory().remove(p.getItemInHand());
+			}
+			e.setCancelled(true);
+			return;
+		}
+
+		if (p.getItemInHand().getType() != Material.BLAZE_POWDER) {
 			return;
 		}
 		e.setCancelled(true);
@@ -39,7 +53,8 @@ public class LISTENERClick implements Listener {
 			plugin.getConfig().set("von.y", pos.getBlockY());
 			plugin.getConfig().set("von.z", pos.getBlockZ());
 			plugin.saveConfig();
-			p.sendMessage(Main.prefix + ChatColor.GREEN + "Du hast Punkt " + ChatColor.YELLOW + "1 " + ChatColor.GREEN + "gesetzt!");
+			p.sendMessage(Main.prefix + ChatColor.GREEN + "Du hast Punkt "
+					+ ChatColor.YELLOW + "1 " + ChatColor.GREEN + "gesetzt!");
 			return;
 		}
 		if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
@@ -48,7 +63,8 @@ public class LISTENERClick implements Listener {
 			plugin.getConfig().set("bis.y", pos.getBlockY());
 			plugin.getConfig().set("bis.z", pos.getBlockZ());
 			plugin.saveConfig();
-			p.sendMessage(Main.prefix + ChatColor.GREEN + "Du hast Punkt " + ChatColor.YELLOW + "2 " + ChatColor.GREEN + "gesetzt!");
+			p.sendMessage(Main.prefix + ChatColor.GREEN + "Du hast Punkt "
+					+ ChatColor.YELLOW + "2 " + ChatColor.GREEN + "gesetzt!");
 			return;
 		}
 

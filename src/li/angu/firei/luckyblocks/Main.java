@@ -13,6 +13,7 @@ import li.angu.firei.luckyblocks.listener.LISTENERFoodChange;
 import li.angu.firei.luckyblocks.listener.LISTENERJoin;
 import li.angu.firei.luckyblocks.listener.LISTENERLeave;
 import li.angu.firei.luckyblocks.listener.LISTENERMove;
+import li.angu.firei.luckyblocks.listener.LISTENERPlayerDeath;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
@@ -49,7 +50,7 @@ public class Main extends JavaPlugin {
 		new LISTENERMove(this);
 		new LISTENERDamage(this);
 		new LISTENERFoodChange(this);
-
+		new LISTENERPlayerDeath(this);
 		new StopDetect(this);
 
 		PlatformManager.createPlatform();

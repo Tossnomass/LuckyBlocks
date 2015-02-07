@@ -205,6 +205,10 @@ public class EventManager {
 			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
 					+ ChatColor.AQUA + " Guten Hunger!", loc);
 		}
+		if(effect == Effekte.EggThrower){
+			new EFFECTEggThrower(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+" + ChatColor.AQUA + " Damit kannst du Eier werfen", loc);
+		}
 		return effect;
 	}
 
