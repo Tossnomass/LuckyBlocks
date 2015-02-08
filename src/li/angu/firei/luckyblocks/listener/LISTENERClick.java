@@ -59,6 +59,8 @@ public class LISTENERClick implements Listener {
 					+ ((blocks == 1) ? " Block" : " Blöcke") + ChatColor.AQUA
 					+ " entfernt!");
 			p.setCompassTarget(target.getLocation());
+			e.setCancelled(true);
+			return;
 		}
 
 		if (p.getItemInHand().getType() != Material.BLAZE_POWDER) {

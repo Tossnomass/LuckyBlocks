@@ -24,6 +24,12 @@ public class CMDaction implements CommandExecutor {
 
 		Player p = (Player) sender;
 
+		if(!p.isOp()){
+			p.sendMessage(Main.prefix + ChatColor.RED + "Du darfst das nicht tuen!");
+			return true;
+		}
+		
+		
 		if (args.length == 1) {
 			Effekt e = Effekt.valueOf(args[0]);
 			EventManager.playEffect(e, p.getLocation());
