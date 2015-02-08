@@ -33,7 +33,7 @@ public class LISTENERBlockBreak implements Listener {
 				+ loc.getBlockZ();
 
 		if (e.getBlock().getType() == Material.SEA_LANTERN) {
-			if (GameManager.status == Status.LOBBY) {
+			if (GameManager.status == Status.WARTEN) {
 				e.getPlayer().sendMessage(
 						Main.prefix + ChatColor.RED
 								+ "Die Runde hat noch nicht angefangen!");

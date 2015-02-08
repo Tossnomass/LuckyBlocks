@@ -2,7 +2,6 @@ package li.angu.firei.luckyblocks.listener;
 
 import li.angu.firei.luckyblocks.Main;
 import li.angu.firei.luckyblocks.game.GameManager;
-import li.angu.firei.luckyblocks.game.Status;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Location;
@@ -25,17 +24,14 @@ public class LISTENERJoin implements Listener {
 	@EventHandler
 	private void onJoin(PlayerJoinEvent e) {
 
-		if (GameManager.status != Status.LOBBY) {
-			e.getPlayer().kickPlayer(
-					ChatColor.RED + "Die Runde hat bereits begonnen!");
-			return;
-		}
-
 		e.getPlayer().getInventory().clear();
 		e.getPlayer().getInventory().setArmorContents(null);
 		e.getPlayer().setHealth(20);
 		e.getPlayer().setFoodLevel(20);
-		
+		e.getPlayer().setExp(0);
+		e.getPlayer().setLevel(0);
+		e.getPlayer().setFireTicks(0);
+
 		e.getPlayer().teleport(spawn);
 
 		e.setJoinMessage(ChatColor.DARK_GRAY + "> " + ChatColor.GREEN

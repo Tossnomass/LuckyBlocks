@@ -31,7 +31,8 @@ public class StopDetect implements Listener {
 	private void onStop(ServerCommandEvent e) {
 		if (e.getCommand().equalsIgnoreCase("stop")
 				|| e.getCommand().equalsIgnoreCase("restart")) {
-			serverstops();
+			stopserver();
+			e.setCommand("test");
 		}
 	}
 
@@ -54,7 +55,7 @@ public class StopDetect implements Listener {
 			public void run() {
 				plugin.getServer().shutdown();
 			}
-		}, 20L);
+		}, 30L);
 		
 	}
 

@@ -46,6 +46,9 @@ public class GameManager {
 
 		lobbystatus = LobbyStatus.COUNTDOWN;
 
+		plugin.getServer().getWorld("world").setStorm(false);
+		plugin.getServer().getWorld("world").setTime(0);
+
 		countdown = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin,
 				new Runnable() {
 
@@ -61,8 +64,10 @@ public class GameManager {
 							if (time == 1) {
 								n = "";
 							}
-							for (Player p : plugin.getServer().getOnlinePlayers()) {
-								p.playSound(p.getLocation(), Sound.NOTE_PLING, 5, 5);
+							for (Player p : plugin.getServer()
+									.getOnlinePlayers()) {
+								p.playSound(p.getLocation(), Sound.NOTE_PLING,
+										5, 5);
 							}
 							plugin.getServer().broadcastMessage(
 									Main.prefix + ChatColor.AQUA
@@ -125,8 +130,10 @@ public class GameManager {
 						}
 						if (time == 20 || time == 15 || time == 10 || time == 5
 								|| time <= 3) {
-							for (Player p : plugin.getServer().getOnlinePlayers()) {
-								p.playSound(p.getLocation(), Sound.NOTE_PLING, 5, 5);
+							for (Player p : plugin.getServer()
+									.getOnlinePlayers()) {
+								p.playSound(p.getLocation(), Sound.NOTE_PLING,
+										5, 5);
 							}
 							String n = "n";
 							if (time == 1) {
@@ -160,6 +167,10 @@ public class GameManager {
 
 	private static void startSchutzCountdown() {
 		time = 90;
+		for(Player target : plugin.getServer().getOnlinePlayers()){
+			target.setLevel(0);
+			target.setExp(0);
+		}
 		countdown = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin,
 				new Runnable() {
 
@@ -169,8 +180,10 @@ public class GameManager {
 						if (time == 75 || time == 60 || time == 45
 								|| time == 30 || time == 15 || time == 10
 								|| time <= 5) {
-							for (Player p : plugin.getServer().getOnlinePlayers()) {
-								p.playSound(p.getLocation(), Sound.NOTE_PLING, 5, 5);
+							for (Player p : plugin.getServer()
+									.getOnlinePlayers()) {
+								p.playSound(p.getLocation(), Sound.NOTE_PLING,
+										5, 5);
 							}
 							String n = "n";
 							if (time == 1) {
