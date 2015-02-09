@@ -146,6 +146,12 @@ public class GameManager {
 											+ ChatColor.AQUA + " los!");
 						}
 						if (time == 0) {
+							int blocks = 0;
+							for (int i = 0; i < plugin.getServer()
+									.getOnlinePlayers().size() * 20; i++) {
+								new SpawnLuckyBlock();
+								blocks++;
+							}
 							Bukkit.getScheduler().cancelTask(countdown);
 							plugin.getServer().broadcastMessage(
 									Main.prefix + ChatColor.GREEN
@@ -157,17 +163,41 @@ public class GameManager {
 													+ "Die Arena hat einen Durchmesser von "
 													+ ChatColor.YELLOW + size
 													+ " Blöcken");
+							plugin.getServer().broadcastMessage(
+									Main.prefix + ChatColor.GRAY + "Es wurden "
+											+ ChatColor.YELLOW + blocks
+											+ " LuckyBlocks " + ChatColor.GRAY
+											+ "gespawnt");
 							status = Status.SCHUTZ;
 							startSchutzCountdown();
+							startSpawnCountdown();
 						}
 
 					}
+
 				}, 20L, 20L);
+	}
+
+	public static int spawnCountdown;
+
+	private static void startSpawnCountdown() {
+		spawnCountdown = Bukkit.getScheduler().scheduleSyncRepeatingTask(
+				plugin, new Runnable() {
+
+					@Override
+					public void run() {
+						for (int i = 0; i < plugin.getServer()
+								.getOnlinePlayers().size() * 10; i++) {
+							new SpawnLuckyBlock();
+						}
+
+					}
+				}, 20L * 5, 20L * 10);
 	}
 
 	private static void startSchutzCountdown() {
 		time = 90;
-		for(Player target : plugin.getServer().getOnlinePlayers()){
+		for (Player target : plugin.getServer().getOnlinePlayers()) {
 			target.setLevel(0);
 			target.setExp(0);
 		}

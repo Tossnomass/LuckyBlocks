@@ -41,7 +41,7 @@ public class LISTENERMove implements Listener {
 		if(e.getTo().getBlockY() < -10){
 			e.getPlayer().setHealth(0);
 			return;
-		}
+		}	
 		if(PlatformManager.mitte.distance(e.getTo()) > GameManager.size){
 			System.out.println(PlatformManager.mitte.distance(e.getTo()));
 			int x = PlatformManager.mitte.getBlockX() - e.getPlayer().getLocation().getBlockX();
