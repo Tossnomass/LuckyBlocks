@@ -9,3 +9,5 @@ commands:
     usage: /action [Aktion]
   save:
     usage: /save
+  test:
+    usage: /save

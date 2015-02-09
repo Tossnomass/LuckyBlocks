@@ -4,6 +4,7 @@ import li.angu.firei.luckyblocks.api.PlatformManager;
 import li.angu.firei.luckyblocks.api.StopDetect;
 import li.angu.firei.luckyblocks.commands.CMDaction;
 import li.angu.firei.luckyblocks.commands.CMDsave;
+import li.angu.firei.luckyblocks.commands.CMDtest;
 import li.angu.firei.luckyblocks.events.Effekt;
 import li.angu.firei.luckyblocks.listener.LISTENERBlockBreak;
 import li.angu.firei.luckyblocks.listener.LISTENERBlockPlace;
@@ -60,6 +61,9 @@ public class Main extends JavaPlugin {
 
 		CMDaction action = new CMDaction(this);
 		getCommand("action").setExecutor(action);
+		
+		CMDtest test = new CMDtest(this);
+		getCommand("test").setExecutor(test);
 
 		System.out.println("Seed: " + getServer().getWorld("world").getSeed());
 		System.out.println(Effekt.values().length + " Effekte geladen!");

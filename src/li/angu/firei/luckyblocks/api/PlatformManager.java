@@ -54,8 +54,10 @@ public class PlatformManager {
 			Material mat = Material.getMaterial(material);
 			Location loc = new Location(Bukkit.getWorld("world"), x, y, z);
 			loc.getBlock().setType(mat);
-			GameManager.protectedblocks.add(loc.getBlockX() + ":"
-					+ loc.getBlockY() + ":" + loc.getBlockZ());
+			if(mat != Material.SEA_LANTERN){
+				GameManager.protectedblocks.add(loc.getBlockX() + ":"
+						+ loc.getBlockY() + ":" + loc.getBlockZ());
+			}
 			if (mat == Material.STEP && data == 0) {
 				locs.add(loc);
 			}

@@ -1,6 +1,7 @@
 package li.angu.firei.luckyblocks.listener;
 
 import li.angu.firei.luckyblocks.Main;
+import li.angu.firei.luckyblocks.game.GameManager;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Location;
@@ -95,7 +96,7 @@ public class LISTENERClick implements Listener {
 
 		Player target = null;
 
-		for (Entity e : p.getNearbyEntities(400, 400, 400)) {
+		for (Entity e : p.getNearbyEntities(GameManager.size * 2, 250, GameManager.size * 2)) {
 			if (e instanceof Player) {
 				double dis = p.getLocation().distance(e.getLocation());
 				if (dis < distance) {
