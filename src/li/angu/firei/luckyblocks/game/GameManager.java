@@ -187,12 +187,12 @@ public class GameManager {
 
 					@Override
 					public void run() {
-						for (int i = 0; i < Spectator.survivors.size() * 10; i++) {
+						for (int i = 0; i < Spectator.survivors.size() * 6; i++) {
 							new SpawnLuckyBlock();
 						}
 
 					}
-				}, 20L * 20, 20L * 10);
+				}, 20L * 20, 20L * 30);
 	}
 
 	private static void startSchutzCountdown() {
@@ -231,7 +231,7 @@ public class GameManager {
 									Main.prefix + ChatColor.DARK_PURPLE
 											+ "Du bist nun verwundbar!");
 							status = Status.START;
-							PlatformManager.explode();
+							PlatformManager.destroy();
 						}
 					}
 				}, 20L, 20L);

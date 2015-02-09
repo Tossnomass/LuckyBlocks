@@ -37,6 +37,7 @@ public class LISTENERJoin implements Listener {
 		
 		if (GameManager.status != Status.LOBBY) {
 			Spectator.add(e.getPlayer());
+			e.setJoinMessage(null);
 			return;
 		}
 		e.getPlayer().setGameMode(GameMode.SURVIVAL);

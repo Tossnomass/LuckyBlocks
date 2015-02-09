@@ -5,7 +5,6 @@ import java.util.Random;
 
 import li.angu.firei.luckyblocks.Main;
 import li.angu.firei.luckyblocks.game.GameManager;
-import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -108,10 +107,35 @@ public class PlatformManager {
 
 	}
 
-	public static void explode() {
-		mitte.getWorld().createExplosion(mitte, 20);
-		plugin.getServer().broadcastMessage(
-				Main.prefix + ChatColor.AQUA + "Die Mitte ist explodiert!");
+	public static void destroy() {
+		Location bl = mitte;
+
+		int vonx = bl.getBlockX();
+		int vony = bl.getBlockY();
+		int vonz = bl.getBlockZ();
+
+		int x = vonx;
+		int y = vony;
+		int z = vonz;
+
+		ArrayList<String> l = (ArrayList<String>) plugin.getConfig()
+				.getStringList("start");
+
+		for (String s : l) {
+			if (s.equalsIgnoreCase("y")) {
+				y++;
+				z = vonz;
+				continue;
+			}
+			if (s.equalsIgnoreCase("z")) {
+				z++;
+				x = vonx;
+				continue;
+			}
+			Location loc = new Location(Bukkit.getWorld("world"), x, y, z);
+			loc.getBlock().setType(Material.AIR);
+			x++;
+		}
 	}
 
 }
