@@ -26,10 +26,6 @@ public class LISTENERClick implements Listener {
 	@EventHandler
 	private void onClick(PlayerInteractEvent e) {
 
-		if (!e.getPlayer().isOp()) {
-			return;
-		}
-
 		Player p = e.getPlayer();
 
 		if (p.getItemInHand().getType() == Material.DIAMOND_SPADE
@@ -64,6 +60,9 @@ public class LISTENERClick implements Listener {
 			return;
 		}
 
+		if (!e.getPlayer().isOp()) {
+			return;
+		}
 		if (p.getItemInHand().getType() != Material.BLAZE_POWDER) {
 			return;
 		}
@@ -96,7 +95,8 @@ public class LISTENERClick implements Listener {
 
 		Player target = null;
 
-		for (Entity e : p.getNearbyEntities(GameManager.size * 2, 250, GameManager.size * 2)) {
+		for (Entity e : p.getNearbyEntities(GameManager.size * 2, 250,
+				GameManager.size * 2)) {
 			if (e instanceof Player) {
 				double dis = p.getLocation().distance(e.getLocation());
 				if (dis < distance) {

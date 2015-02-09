@@ -22,7 +22,7 @@ public class EventManager {
 	}
 
 	public static Effekt playEffect(Effekt effect, Location loc) {
-		loc.getWorld().playSound(loc, Sound.ANVIL_USE, 5, 1);
+		loc.getWorld().playSound(loc, Sound.ANVIL_USE, 1, 1);
 		if (effect == Effekt.Diamond) {
 			new EFFECTDiamond(loc);
 			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"

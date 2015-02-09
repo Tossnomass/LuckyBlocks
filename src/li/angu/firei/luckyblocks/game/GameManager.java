@@ -27,7 +27,7 @@ public class GameManager {
 
 	public static int size = 800;
 
-	public static int time = 20;
+	public static int time = 60;
 
 	static int countdown;
 
@@ -231,6 +231,7 @@ public class GameManager {
 									Main.prefix + ChatColor.DARK_PURPLE
 											+ "Du bist nun verwundbar!");
 							status = Status.START;
+							PlatformManager.explode();
 						}
 					}
 				}, 20L, 20L);

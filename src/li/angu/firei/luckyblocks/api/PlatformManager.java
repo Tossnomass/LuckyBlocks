@@ -5,6 +5,7 @@ import java.util.Random;
 
 import li.angu.firei.luckyblocks.Main;
 import li.angu.firei.luckyblocks.game.GameManager;
+import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -54,7 +55,7 @@ public class PlatformManager {
 			Material mat = Material.getMaterial(material);
 			Location loc = new Location(Bukkit.getWorld("world"), x, y, z);
 			loc.getBlock().setType(mat);
-			if(mat != Material.SEA_LANTERN){
+			if (mat != Material.SEA_LANTERN) {
 				GameManager.protectedblocks.add(loc.getBlockX() + ":"
 						+ loc.getBlockY() + ":" + loc.getBlockZ());
 			}
@@ -105,6 +106,12 @@ public class PlatformManager {
 			}
 		}
 
+	}
+
+	public static void explode() {
+		mitte.getWorld().createExplosion(mitte, 20);
+		plugin.getServer().broadcastMessage(
+				Main.prefix + ChatColor.AQUA + "Die Mitte ist explodiert!");
 	}
 
 }
