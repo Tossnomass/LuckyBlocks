@@ -187,7 +187,7 @@ public class GameManager {
 
 					@Override
 					public void run() {
-						for (int i = 0; i < Spectator.survivors.size() * 6; i++) {
+						for (int i = 0; i < Spectator.survivors.size() * 20; i++) {
 							new SpawnLuckyBlock();
 						}
 

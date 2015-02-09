@@ -20,6 +20,7 @@ public class LISTENERLeave implements Listener {
 	@EventHandler
 	private void onQuit(PlayerQuitEvent e) {
 		if(Spectator.spectator.contains(e.getPlayer().getName())){
+			e.setQuitMessage(null);
 			return;
 		}
 		e.setQuitMessage(ChatColor.DARK_GRAY + "> " + ChatColor.GREEN + e.getPlayer().getDisplayName() + ChatColor.DARK_AQUA + " hat das Spiel verlassen");

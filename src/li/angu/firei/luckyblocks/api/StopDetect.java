@@ -1,11 +1,8 @@
 package li.angu.firei.luckyblocks.api;
 
-import java.io.File;
-
 import li.angu.firei.luckyblocks.Main;
 
 import org.bukkit.Bukkit;
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -50,13 +47,13 @@ public class StopDetect implements Listener {
 	public static void stopserver() {
 		serverstops();
 		Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-			
+
 			@Override
 			public void run() {
 				plugin.getServer().shutdown();
 			}
 		}, 30L);
-		
+
 	}
 
 	private static void serverstops() {
@@ -67,13 +64,6 @@ public class StopDetect implements Listener {
 		for (Player target : plugin.getServer().getOnlinePlayers()) {
 			target.sendPluginMessage(plugin, "BungeeCord", out.toByteArray());
 		}
-
-		World w = Bukkit.getWorld("world");
-
-		WorldManager.unloadWorld(w);
-
-		File deleteFolder = w.getWorldFolder();
-		WorldManager.deleteWorld(deleteFolder);
 
 	}
 
