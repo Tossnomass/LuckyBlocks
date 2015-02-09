@@ -2,8 +2,11 @@ package li.angu.firei.luckyblocks.listener;
 
 import li.angu.firei.luckyblocks.Main;
 import li.angu.firei.luckyblocks.game.GameManager;
+import li.angu.firei.luckyblocks.game.Spectator;
+import li.angu.firei.luckyblocks.game.Status;
 import net.md_5.bungee.api.ChatColor;
 
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -31,6 +34,12 @@ public class LISTENERJoin implements Listener {
 		e.getPlayer().setExp(0);
 		e.getPlayer().setLevel(0);
 		e.getPlayer().setFireTicks(0);
+		
+		if (GameManager.status != Status.LOBBY) {
+			Spectator.add(e.getPlayer());
+			return;
+		}
+		e.getPlayer().setGameMode(GameMode.SURVIVAL);
 
 		e.getPlayer().teleport(spawn);
 

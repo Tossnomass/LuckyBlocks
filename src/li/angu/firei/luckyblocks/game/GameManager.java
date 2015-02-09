@@ -112,6 +112,7 @@ public class GameManager {
 
 			starts.put(p, spawn);
 			p.teleport(spawn.add(0.5, 1, 0.5));
+			Spectator.survivors.add(p.getName());
 		}
 		size = plugin.getServer().getOnlinePlayers().size() * 100;
 		startGameCountdown();
@@ -186,13 +187,12 @@ public class GameManager {
 
 					@Override
 					public void run() {
-						for (int i = 0; i < plugin.getServer()
-								.getOnlinePlayers().size() * 10; i++) {
+						for (int i = 0; i < Spectator.survivors.size() * 10; i++) {
 							new SpawnLuckyBlock();
 						}
 
 					}
-				}, 20L * 5, 20L * 10);
+				}, 20L * 20, 20L * 10);
 	}
 
 	private static void startSchutzCountdown() {
