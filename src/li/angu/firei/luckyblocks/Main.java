@@ -6,7 +6,9 @@ import li.angu.firei.luckyblocks.api.PlatformManager;
 import li.angu.firei.luckyblocks.api.StopDetect;
 import li.angu.firei.luckyblocks.api.WorldManager;
 import li.angu.firei.luckyblocks.commands.CMDaction;
+import li.angu.firei.luckyblocks.commands.CMDfix;
 import li.angu.firei.luckyblocks.commands.CMDsave;
+import li.angu.firei.luckyblocks.commands.CMDstart;
 import li.angu.firei.luckyblocks.events.Effekt;
 import li.angu.firei.luckyblocks.listener.LISTENERBlockBreak;
 import li.angu.firei.luckyblocks.listener.LISTENERBlockPlace;
@@ -64,6 +66,12 @@ public class Main extends JavaPlugin {
 
 		CMDaction action = new CMDaction(this);
 		getCommand("action").setExecutor(action);
+
+		CMDstart start = new CMDstart(this);
+		getCommand("start").setExecutor(start);
+
+		CMDfix fix = new CMDfix(this);
+		getCommand("fix").setExecutor(fix);
 
 		System.out.println("Seed: " + getServer().getWorld("world").getSeed());
 		System.out.println(Effekt.values().length + " Effekte geladen!");

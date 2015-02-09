@@ -88,6 +88,15 @@ public class GameManager {
 
 						}
 						if (time == 0) {
+							if (plugin.getServer().getOnlinePlayers().size() <= 1) {
+								Bukkit.getScheduler().cancelTask(countdown);
+								plugin.getServer()
+										.broadcastMessage(
+												Main.prefix
+														+ ChatColor.RED
+														+ "Nicht genügend Spieler online!");
+								return;
+							}
 							status = Status.WARTEN;
 							Bukkit.getScheduler().cancelTask(countdown);
 							startGame();
@@ -149,7 +158,7 @@ public class GameManager {
 						if (time == 0) {
 							int blocks = 0;
 							for (int i = 0; i < plugin.getServer()
-									.getOnlinePlayers().size() * 20; i++) {
+									.getOnlinePlayers().size() * 25; i++) {
 								new SpawnLuckyBlock();
 								blocks++;
 							}
@@ -187,7 +196,7 @@ public class GameManager {
 
 					@Override
 					public void run() {
-						for (int i = 0; i < Spectator.survivors.size() * 20; i++) {
+						for (int i = 0; i < Spectator.survivors.size() * 8; i++) {
 							new SpawnLuckyBlock();
 						}
 
@@ -232,9 +241,36 @@ public class GameManager {
 											+ "Du bist nun verwundbar!");
 							status = Status.START;
 							PlatformManager.destroy();
+							startArenaSize();
 						}
 					}
+
 				}, 20L, 20L);
+	}
+
+	static int ArenaSizeCountdown;
+	static int ArenaSizeTime = 5;
+
+	public static void startArenaSize() {
+		ArenaSizeCountdown = Bukkit.getScheduler().scheduleSyncRepeatingTask(
+				plugin, new Runnable() {
+
+					@Override
+					public void run() {
+						ArenaSizeTime--;
+						plugin.getServer().broadcastMessage(
+								Main.prefix + ChatColor.RED
+										+ "Die Arena wird in "
+										+ ChatColor.YELLOW + ArenaSizeTime
+										+ " Minuten " + ChatColor.RED
+										+ "kleiner!");
+						if (ArenaSizeTime == 0) {
+							ArenaSizeTime = 5;
+							new SizeManager();
+						}
+					}
+				}, 20L * 60, 20L * 60);
+
 	}
 
 }

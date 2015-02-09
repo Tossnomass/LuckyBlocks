@@ -9,3 +9,7 @@ commands:
     usage: /action [Aktion]
   save:
     usage: /save
+  start:
+    usage: /start
+  fix:
+    usage: /fix

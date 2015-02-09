@@ -1,5 +1,6 @@
 package li.angu.firei.luckyblocks.listener;
 
+import li.angu.firei.luckyblocks.Fix;
 import li.angu.firei.luckyblocks.Main;
 import li.angu.firei.luckyblocks.game.GameManager;
 import li.angu.firei.luckyblocks.game.Spectator;
@@ -34,7 +35,9 @@ public class LISTENERJoin implements Listener {
 		e.getPlayer().setExp(0);
 		e.getPlayer().setLevel(0);
 		e.getPlayer().setFireTicks(0);
-		
+
+		Fix.fix(e.getPlayer());
+
 		if (GameManager.status != Status.LOBBY) {
 			Spectator.add(e.getPlayer());
 			e.setJoinMessage(null);
