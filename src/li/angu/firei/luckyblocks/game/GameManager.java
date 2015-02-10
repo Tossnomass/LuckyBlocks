@@ -95,6 +95,7 @@ public class GameManager {
 												Main.prefix
 														+ ChatColor.RED
 														+ "Nicht genügend Spieler online!");
+								lobbystatus = LobbyStatus.WAIT;
 								return;
 							}
 							status = Status.WARTEN;

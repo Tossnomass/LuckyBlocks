@@ -205,25 +205,36 @@ public class EventManager {
 			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
 					+ ChatColor.AQUA + " Guten Hunger!", loc);
 		}
-		if(effect == Effekt.EggThrower){
+		if (effect == Effekt.EggThrower) {
 			new EFFECTEggThrower(loc);
-			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+" + ChatColor.AQUA + " Damit kannst du Eier werfen", loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Damit kannst du Eier werfen", loc);
 		}
-		if(effect == Effekt.Steak){
+		if (effect == Effekt.Steak) {
 			new EFFECTSteak(loc);
-			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+" + ChatColor.AQUA + " Guten Hunger!", loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Guten Hunger!", loc);
 		}
-		if(effect == Effekt.Chicken){
+		if (effect == Effekt.Chicken) {
 			new EFFECTChicken(loc);
-			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+" + ChatColor.AQUA + " Guten Hunger!", loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Guten Hunger!", loc);
 		}
-		if(effect == Effekt.Bread){
+		if (effect == Effekt.Bread) {
 			new EFFECTBread(loc);
-			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+" + ChatColor.AQUA + " Guten Hunger!", loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Guten Hunger!", loc);
 		}
-		if(effect == Effekt.Compass){
+		if (effect == Effekt.Compass) {
 			new EFFECTCompass(loc);
-			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+" + ChatColor.AQUA + " Damit kannst du deine Gegner finden!", loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Damit kannst du deine Gegner finden!",
+					loc);
+		}
+		if (effect == Effekt.Battleaxe) {
+			new EFFECTBattleAxe(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Die kannst du werfen!", loc);
 		}
 		return effect;
 	}

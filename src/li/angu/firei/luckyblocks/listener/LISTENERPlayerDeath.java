@@ -2,10 +2,12 @@ package li.angu.firei.luckyblocks.listener;
 
 import li.angu.firei.luckyblocks.Main;
 import li.angu.firei.luckyblocks.api.PlatformManager;
+import li.angu.firei.luckyblocks.api.StopDetect;
 import li.angu.firei.luckyblocks.game.Spectator;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -53,6 +55,41 @@ public class LISTENERPlayerDeath implements Listener {
 				}
 				Spectator.add(e.getEntity());
 				e.getEntity().teleport(PlatformManager.mitte);
+				if (Spectator.survivors.size() == 1) {
+					Player p = plugin.getServer().getPlayer(
+							Spectator.survivors.get(0));
+					plugin.getServer().getScheduler().cancelAllTasks();
+					p.sendMessage(Main.prefix + ChatColor.DARK_PURPLE
+							+ "Du hast gewonnen!");
+					plugin.getServer().broadcastMessage(
+							Main.prefix + ChatColor.YELLOW + p.getName()
+									+ ChatColor.GREEN
+									+ " hat das Spiel gewonnen!");
+					plugin.getServer()
+							.broadcastMessage(
+									Main.prefix
+											+ ChatColor.GRAY
+											+ "Du wirst in 10 Sekunden in die Lobby teleportiert.");
+					Bukkit.getScheduler().scheduleSyncDelayedTask(plugin,
+							new Runnable() {
+
+								@Override
+								public void run() {
+									plugin.getServer()
+											.broadcastMessage(
+													Main.prefix
+															+ ChatColor.RED
+															+ "Kehre zur Lobby zurück...");
+									StopDetect.stopserver();
+
+								}
+							}, 20L * 10);
+				} else {
+					plugin.getServer().broadcastMessage(
+							Main.prefix + ChatColor.GRAY + "Es leben noch "
+									+ ChatColor.YELLOW
+									+ Spectator.survivors.size() + " Spieler");
+				}
 
 			}
 		}, 10L);

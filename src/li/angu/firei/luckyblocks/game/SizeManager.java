@@ -18,7 +18,11 @@ public class SizeManager {
 				distance = dis;
 			}
 		}
-		GameManager.size = distance + 10;
+		if (GameManager.size - 100 > distance) {
+			GameManager.size -= 100;
+		} else {
+			GameManager.size = distance + 10;
+		}
 		plugin.getServer().broadcastMessage(
 				Main.prefix + ChatColor.AQUA + "Die Welt ist nun "
 						+ ChatColor.YELLOW + GameManager.size + " Blöcke "

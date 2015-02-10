@@ -1,17 +1,22 @@
 package li.angu.firei.luckyblocks.listener;
 
+import java.util.Random;
+
 import li.angu.firei.luckyblocks.Main;
 import li.angu.firei.luckyblocks.game.GameManager;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class LISTENERClick implements Listener {
 
@@ -27,6 +32,15 @@ public class LISTENERClick implements Listener {
 	private void onClick(PlayerInteractEvent e) {
 
 		Player p = e.getPlayer();
+
+		if (p.getItemInHand().getType() == Material.DIAMOND_AXE
+				&& p.getItemInHand().getItemMeta().getDisplayName()
+						.equalsIgnoreCase(ChatColor.AQUA + "Wurfaxt")) {
+			Item item = p.getWorld().dropItem(p.getLocation(), p.getItemInHand());
+			item.setVelocity(p.getLocation().getDirection().multiply(2D));
+
+			p.setItemInHand(new ItemStack(Material.AIR));
+		}
 
 		if (p.getItemInHand().getType() == Material.DIAMOND_SPADE
 				&& p.getItemInHand().getItemMeta().getDisplayName()
@@ -58,6 +72,23 @@ public class LISTENERClick implements Listener {
 			p.setCompassTarget(target.getLocation());
 			e.setCancelled(true);
 			return;
+		}
+
+		if (p.getWorld().equals(plugin.getServer().getWorld("lobby"))) {
+			if (e.getClickedBlock().getType() == Material.STAINED_CLAY) {
+				byte data = e.getClickedBlock().getData();
+				data++;
+				if (data == 16) {
+					data = 0;
+				}
+				e.getClickedBlock().setData(data);
+				int pick = new Random().nextInt(Sound.values().length);
+				Sound sound = Sound.values()[pick];
+				p.getWorld().playSound(e.getClickedBlock().getLocation(),
+						sound, 1, 1);
+				e.setCancelled(true);
+				return;
+			}
 		}
 
 		if (!e.getPlayer().isOp()) {

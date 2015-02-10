@@ -52,12 +52,14 @@ public class StopDetect implements Listener {
 			public void run() {
 				plugin.getServer().shutdown();
 			}
-		}, 30L);
+		}, 40L);
 
 	}
 
 	private static void serverstops() {
 
+		PlatformManager.destroy();
+		
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		out.writeUTF("Connect");
 		out.writeUTF("lobby");
