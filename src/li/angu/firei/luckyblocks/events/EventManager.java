@@ -236,6 +236,37 @@ public class EventManager {
 			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
 					+ ChatColor.AQUA + " Die kannst du werfen!", loc);
 		}
+		if (effect == Effekt.Saddle) {
+			new EFFECTSaddle(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Hüa, Hüa!", loc);
+		}
+		if (effect == Effekt.Bottle) {
+			new EFFECTBottle(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Die sind leer!", loc);
+		}
+		if (effect == Effekt.TNT) {
+			new EFFECTTnT(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " BOOOOOM!", loc);
+		}
+		if (effect == Effekt.Ghast) {
+			new EFFECTGhast(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "-"
+					+ ChatColor.RED + " Ich habe mich verirrt!", loc);
+		}
+		if (effect == Effekt.EnderEgg) {
+			new EFFECTEnderEgg(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.GOLD + "+"
+					+ ChatColor.AQUA + " Versteck mich!", loc);
+		}
+		if (effect == Effekt.Beacon) {
+			new EFFECTBeacon(loc);
+			new createHologram(ChatColor.BOLD + "" + ChatColor.AQUA + "...",
+					loc);
+		}
+
 		return effect;
 	}
 
