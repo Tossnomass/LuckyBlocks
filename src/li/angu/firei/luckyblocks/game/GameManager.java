@@ -157,11 +157,8 @@ public class GameManager {
 											+ ChatColor.AQUA + " los!");
 						}
 						if (time == 0) {
-							int blocks = 0;
-							for (int i = 0; i < plugin.getServer()
-									.getOnlinePlayers().size() * 25; i++) {
+							for (int i = 0; i < size*size/1000; i++) {
 								new SpawnLuckyBlock();
-								blocks++;
 							}
 							Bukkit.getScheduler().cancelTask(countdown);
 							plugin.getServer().broadcastMessage(
@@ -176,7 +173,8 @@ public class GameManager {
 													+ " Blöcken");
 							plugin.getServer().broadcastMessage(
 									Main.prefix + ChatColor.GRAY + "Es wurden "
-											+ ChatColor.YELLOW + blocks
+											+ ChatColor.YELLOW
+											+ SpawnLuckyBlock.blocks
 											+ " LuckyBlocks " + ChatColor.GRAY
 											+ "gespawnt");
 							status = Status.SCHUTZ;
@@ -197,7 +195,7 @@ public class GameManager {
 
 					@Override
 					public void run() {
-						for (int i = 0; i < Spectator.survivors.size() * 8; i++) {
+						for (int i = 0; i < size*size/4000; i++) {
 							new SpawnLuckyBlock();
 						}
 

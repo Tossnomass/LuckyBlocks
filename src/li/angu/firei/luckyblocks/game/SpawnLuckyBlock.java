@@ -12,6 +12,8 @@ public class SpawnLuckyBlock {
 
 	Main plugin = Main.instance;
 
+	public static int blocks = 0;
+
 	@SuppressWarnings("deprecation")
 	public SpawnLuckyBlock() {
 		int x;
@@ -29,9 +31,8 @@ public class SpawnLuckyBlock {
 
 		loc = new Location(plugin.getServer().getWorld("world"), x, y, z);
 
+		blocks++;
 		loc.getWorld().spawnFallingBlock(loc, Material.SEA_LANTERN, (byte) 0x0);
-
-		// loc.getBlock().setType(Material.SEA_LANTERN);
 	}
 
 }
