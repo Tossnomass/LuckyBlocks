@@ -3,6 +3,7 @@ package li.angu.firei.luckyblocks.listener;
 import java.util.Random;
 
 import li.angu.firei.luckyblocks.Main;
+import li.angu.firei.luckyblocks.api.AxeThread;
 import li.angu.firei.luckyblocks.game.GameManager;
 import net.md_5.bungee.api.ChatColor;
 
@@ -36,10 +37,13 @@ public class LISTENERClick implements Listener {
 		if (p.getItemInHand().getType() == Material.DIAMOND_AXE
 				&& p.getItemInHand().getItemMeta().getDisplayName()
 						.equalsIgnoreCase(ChatColor.AQUA + "Wurfaxt")) {
-			Item item = p.getWorld().dropItem(p.getLocation(), p.getItemInHand());
+			Item item = p.getWorld().dropItem(p.getLocation(),
+					p.getItemInHand());
 			item.setVelocity(p.getLocation().getDirection().multiply(2D));
 
 			p.setItemInHand(new ItemStack(Material.AIR));
+
+			new AxeThread(p, 0.6, item).start();
 		}
 
 		if (p.getItemInHand().getType() == Material.DIAMOND_SPADE

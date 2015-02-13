@@ -13,6 +13,8 @@ public class Fix {
 			if (target.equals(p)) {
 				continue;
 			}
+
+
 			target.hidePlayer(p);
 			p.hidePlayer(target);
 			Bukkit.getScheduler().scheduleSyncDelayedTask(plugin,

@@ -40,8 +40,19 @@ public class AxeThread implements Runnable {
 					Player target = (Player) e;
 					if(target != p){
 						target.setHealth(target.getHealth() - 7D);
+						item.remove();
+						this.stop();
+						break;
 					}
 				}
+			}
+			if(item.isOnGround()){
+				this.stop();
+			}
+			try {
+				Thread.sleep(25);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
 			}
 		}
 	}
