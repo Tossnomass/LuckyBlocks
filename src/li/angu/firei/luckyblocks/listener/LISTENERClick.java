@@ -79,6 +79,9 @@ public class LISTENERClick implements Listener {
 		}
 
 		if (p.getWorld().equals(plugin.getServer().getWorld("lobby"))) {
+			if(e.getClickedBlock().getType() == null){
+				return;
+			}
 			if (e.getClickedBlock().getType() == Material.STAINED_CLAY) {
 				byte data = e.getClickedBlock().getData();
 				data++;

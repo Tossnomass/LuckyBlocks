@@ -6,6 +6,7 @@ import java.util.Random;
 
 import li.angu.firei.luckyblocks.Main;
 import li.angu.firei.luckyblocks.api.PlatformManager;
+import li.angu.firei.luckyblocks.api.WorldManager;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
@@ -121,6 +122,7 @@ public class GameManager {
 			PlatformManager.locs.remove(random);
 
 			starts.put(p, spawn);
+			WorldManager.loadChunk(spawn);
 			p.teleport(spawn.add(0.5, 1, 0.5));
 			Spectator.survivors.add(p.getName());
 		}
