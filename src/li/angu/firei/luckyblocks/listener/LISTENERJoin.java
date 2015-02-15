@@ -2,6 +2,8 @@ package li.angu.firei.luckyblocks.listener;
 
 import li.angu.firei.luckyblocks.Fix;
 import li.angu.firei.luckyblocks.Main;
+import li.angu.firei.luckyblocks.api.PlatformManager;
+import li.angu.firei.luckyblocks.api.WorldManager;
 import li.angu.firei.luckyblocks.game.GameManager;
 import li.angu.firei.luckyblocks.game.Spectator;
 import li.angu.firei.luckyblocks.game.Status;
@@ -44,6 +46,8 @@ public class LISTENERJoin implements Listener {
 			return;
 		}
 		e.getPlayer().setGameMode(GameMode.SURVIVAL);
+
+		WorldManager.loadChunk(PlatformManager.mitte);
 
 		e.getPlayer().teleport(spawn);
 
