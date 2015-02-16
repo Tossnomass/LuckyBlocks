@@ -6,6 +6,7 @@ import java.util.List;
 import li.angu.firei.luckyblocks.Main;
 import li.angu.firei.luckyblocks.api.PlatformManager;
 import li.angu.firei.luckyblocks.game.GameManager;
+import li.angu.firei.luckyblocks.game.Spectator;
 import li.angu.firei.luckyblocks.game.Status;
 import net.md_5.bungee.api.ChatColor;
 
@@ -39,6 +40,10 @@ public class LISTENERMove implements Listener {
 			}
 		}
 		if(e.getTo().getBlockY() < -10){
+			if(Spectator.spectator.contains(e.getPlayer().getName())){
+				e.getPlayer().teleport(PlatformManager.mitte);
+				return;
+			}
 			e.getPlayer().setHealth(0);
 			return;
 		}	
